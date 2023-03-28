@@ -1761,15 +1761,15 @@ public final class Chat {
       "\014currencyFrom\030\001 \001(\t\022\022\n\ncurrencyTo\030\002 \001(\t\022" +
       "\017\n\007message\030\003 \001(\t\"T\n\027ConvertCurrencyRespo" +
       "nse\022\024\n\014currencyFrom\030\001 \001(\t\022\022\n\ncurrencyTo\030" +
-      "\002 \001(\t\022\017\n\007message\030\003 \001(\t2\246\002\n\rBanqueService" +
-      "\022;\n\007convert\022\026.ConvertCurencyRequest\032\030.Co" +
-      "nvertCurrencyResponse\022G\n\021getCurrencyStre" +
-      "am\022\026.ConvertCurencyRequest\032\030.ConvertCurr" +
-      "encyResponse0\001\022C\n\rperformStream\022\026.Conver" +
-      "tCurencyRequest\032\030.ConvertCurrencyRespons" +
-      "e(\001\022J\n\022fullCurrencyStream\022\026.ConvertCuren" +
-      "cyRequest\032\030.ConvertCurrencyResponse(\0010\001B" +
-      "\020\n\016ma.enset.stubsb\006proto3"
+      "\002 \001(\t\022\017\n\007message\030\003 \001(\t2\244\002\n\013ChatService\022;" +
+      "\n\007convert\022\026.ConvertCurencyRequest\032\030.Conv" +
+      "ertCurrencyResponse\022G\n\021getCurrencyStream" +
+      "\022\026.ConvertCurencyRequest\032\030.ConvertCurren" +
+      "cyResponse0\001\022C\n\rperformStream\022\026.ConvertC" +
+      "urencyRequest\032\030.ConvertCurrencyResponse(" +
+      "\001\022J\n\022fullCurrencyStream\022\026.ConvertCurency" +
+      "Request\032\030.ConvertCurrencyResponse(\0010\001B\020\n" +
+      "\016ma.enset.stubsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

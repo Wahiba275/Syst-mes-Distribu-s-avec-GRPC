@@ -1,6 +1,6 @@
 syntax ="proto3";
 option java_package="ma.enset.stubs";
-service  BanqueService{
+service  ChatService{
   rpc convert(ConvertCurencyRequest) returns(ConvertCurrencyResponse);//unary model
   rpc getCurrencyStream(ConvertCurencyRequest) returns(stream ConvertCurrencyResponse);//server stream model
   rpc performStream(stream ConvertCurencyRequest) returns(ConvertCurrencyResponse);//client streaming model

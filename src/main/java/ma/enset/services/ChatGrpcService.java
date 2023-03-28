@@ -5,11 +5,14 @@ import ma.enset.stubs.Chat;
 import ma.enset.stubs.ChatServiceGrpc;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class ChatGrpcService extends ChatServiceGrpc.BanqueServiceImplBase {
+public class ChatGrpcService extends ChatServiceGrpc.ChatServiceImplBase {
     HashMap<String , StreamObserver> clients = new HashMap<>();
+    private Map<String, StreamObserver<Chat.ConvertCurrencyResponse>> clients1 = new ConcurrentHashMap<>();
     @Override
     public void convert(Chat.ConvertCurencyRequest request, StreamObserver<Chat.ConvertCurrencyResponse> responseObserver) {
         String currencyFrom = request.getCurrencyFrom();
@@ -75,49 +78,51 @@ public class ChatGrpcService extends ChatServiceGrpc.BanqueServiceImplBase {
     }
 
     @Override
+
     public StreamObserver<Chat.ConvertCurencyRequest> fullCurrencyStream(StreamObserver<Chat.ConvertCurrencyResponse> responseObserver) {
-        return new StreamObserver<Chat.ConvertCurencyRequest>() {
+        StreamObserver<Chat.ConvertCurencyRequest> requestObserver = new StreamObserver<Chat.ConvertCurencyRequest>() {
             @Override
-            public void onNext(Chat.ConvertCurencyRequest convertCurencyRequest) {
-                String currencyFrom = convertCurencyRequest.getCurrencyFrom();
-                String currencyTo = convertCurencyRequest.getCurrencyTo();
-                if(!clients.containsKey(currencyFrom)){
-                    clients.put(currencyFrom , responseObserver);
-                }
-                if(currencyTo.isEmpty()){
-                    for(String s : clients.keySet()){
-                        if(!s.equals(currencyFrom)) {
-                            clients.get(s).onNext(convertCurencyRequest);
-                        }
+            public void onNext(Chat.ConvertCurencyRequest request) {
+                String from = request.getCurrencyFrom();
+                String to = request.getCurrencyTo();
+                String message = request.getMessage();
+
+                // envoyer la réponse à tous les clients qui ont la devise 'from'
+                for (Map.Entry<String, StreamObserver<Chat.ConvertCurrencyResponse>> entry : clients1.entrySet()) {
+                    if (entry.getKey().equals(from)) {
+                        Chat.ConvertCurrencyResponse response = Chat.ConvertCurrencyResponse.newBuilder()
+                                .setMessage(message)
+                                .setCurrencyFrom(from)
+                                .setCurrencyTo(to)
+                                .build();
+                        entry.getValue().onNext(response);
                     }
-                } else if (clients.containsKey(currencyTo)) {
-                    StreamObserver<Chat.ConvertCurencyRequest> requestStreamObserver = clients.get(currencyTo);
-                    requestStreamObserver.onNext(convertCurencyRequest);
+                }
+
+                //  ajouter le client à la liste s'il n'y est pas encore
+                if (!clients.containsKey(from)) {
+                    clients.put(from, responseObserver);
                 }
             }
+
             @Override
-            public void onError(Throwable throwable) {
+            public void onError(Throwable t) {
+                // Supprimer le client s'il y a une erreur
+                String message = t.getMessage();
+                clients.entrySet().removeIf(entry -> entry.getValue().equals(responseObserver));
             }
+
             @Override
             public void onCompleted() {
-                        responseObserver.onCompleted();
+                // Supprimer le client une fois terminé
+                clients.entrySet().removeIf(entry -> entry.getValue().equals(responseObserver));
+                responseObserver.onCompleted();
             }
         };
-       /* return  new StreamObserver<Bank.ConvertCurencyRequest>() {
-             @Override
-             public void onNext(Bank.ConvertCurencyRequest convertCurencyRequest) {
-                Bank.ConvertCurrencyResponse response = Bank.ConvertCurrencyResponse.newBuilder()
-                        .setResult(convertCurencyRequest.getAmount()*Math.random()*40)
-                        .build();
-                responseObserver.onNext(response);
-             }
-             @Override
-             public void onError(Throwable throwable) {
-             }
-             @Override
-             public void onCompleted() {
-                responseObserver.onCompleted();
-             }
-         };*/
+
+        return requestObserver;
     }
+
+
+
 }

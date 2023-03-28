@@ -6,7 +6,7 @@ import ma.enset.services.ChatGrpcService;
 
 public class GrpcServer {
     public static void main(String[] args) throws Exception {
-        Server server = ServerBuilder.forPort(5555)
+        Server server = ServerBuilder.forPort(5005)
                 .addService(new ChatGrpcService())
                 .build();
         server.start();

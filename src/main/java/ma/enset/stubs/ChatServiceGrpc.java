@@ -24,7 +24,7 @@ public final class ChatServiceGrpc {
 
   private ChatServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "BanqueService";
+  public static final String SERVICE_NAME = "ChatService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<ma.enset.stubs.Chat.ConvertCurencyRequest,
@@ -41,17 +41,17 @@ public final class ChatServiceGrpc {
     if ((getConvertMethod = ChatServiceGrpc.getConvertMethod) == null) {
       synchronized (ChatServiceGrpc.class) {
         if ((getConvertMethod = ChatServiceGrpc.getConvertMethod) == null) {
-          ChatServiceGrpc.getConvertMethod = getConvertMethod =
+          ChatServiceGrpc.getConvertMethod = getConvertMethod = 
               io.grpc.MethodDescriptor.<ma.enset.stubs.Chat.ConvertCurencyRequest, ma.enset.stubs.Chat.ConvertCurrencyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "BanqueService", "convert"))
+                  "ChatService", "convert"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurencyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurrencyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new BanqueServiceMethodDescriptorSupplier("convert"))
+                  .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("convert"))
                   .build();
           }
         }
@@ -73,17 +73,17 @@ public final class ChatServiceGrpc {
     if ((getGetCurrencyStreamMethod = ChatServiceGrpc.getGetCurrencyStreamMethod) == null) {
       synchronized (ChatServiceGrpc.class) {
         if ((getGetCurrencyStreamMethod = ChatServiceGrpc.getGetCurrencyStreamMethod) == null) {
-          ChatServiceGrpc.getGetCurrencyStreamMethod = getGetCurrencyStreamMethod =
+          ChatServiceGrpc.getGetCurrencyStreamMethod = getGetCurrencyStreamMethod = 
               io.grpc.MethodDescriptor.<ma.enset.stubs.Chat.ConvertCurencyRequest, ma.enset.stubs.Chat.ConvertCurrencyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "BanqueService", "getCurrencyStream"))
+                  "ChatService", "getCurrencyStream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurencyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurrencyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new BanqueServiceMethodDescriptorSupplier("getCurrencyStream"))
+                  .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("getCurrencyStream"))
                   .build();
           }
         }
@@ -105,17 +105,17 @@ public final class ChatServiceGrpc {
     if ((getPerformStreamMethod = ChatServiceGrpc.getPerformStreamMethod) == null) {
       synchronized (ChatServiceGrpc.class) {
         if ((getPerformStreamMethod = ChatServiceGrpc.getPerformStreamMethod) == null) {
-          ChatServiceGrpc.getPerformStreamMethod = getPerformStreamMethod =
+          ChatServiceGrpc.getPerformStreamMethod = getPerformStreamMethod = 
               io.grpc.MethodDescriptor.<ma.enset.stubs.Chat.ConvertCurencyRequest, ma.enset.stubs.Chat.ConvertCurrencyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "BanqueService", "performStream"))
+                  "ChatService", "performStream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurencyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurrencyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new BanqueServiceMethodDescriptorSupplier("performStream"))
+                  .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("performStream"))
                   .build();
           }
         }
@@ -137,17 +137,17 @@ public final class ChatServiceGrpc {
     if ((getFullCurrencyStreamMethod = ChatServiceGrpc.getFullCurrencyStreamMethod) == null) {
       synchronized (ChatServiceGrpc.class) {
         if ((getFullCurrencyStreamMethod = ChatServiceGrpc.getFullCurrencyStreamMethod) == null) {
-          ChatServiceGrpc.getFullCurrencyStreamMethod = getFullCurrencyStreamMethod =
+          ChatServiceGrpc.getFullCurrencyStreamMethod = getFullCurrencyStreamMethod = 
               io.grpc.MethodDescriptor.<ma.enset.stubs.Chat.ConvertCurencyRequest, ma.enset.stubs.Chat.ConvertCurrencyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "BanqueService", "fullCurrencyStream"))
+                  "ChatService", "fullCurrencyStream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurencyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   ma.enset.stubs.Chat.ConvertCurrencyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new BanqueServiceMethodDescriptorSupplier("fullCurrencyStream"))
+                  .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("fullCurrencyStream"))
                   .build();
           }
         }
@@ -158,29 +158,29 @@ public final class ChatServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static BanqueServiceStub newStub(io.grpc.Channel channel) {
-    return new BanqueServiceStub(channel);
+  public static ChatServiceStub newStub(io.grpc.Channel channel) {
+    return new ChatServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static BanqueServiceBlockingStub newBlockingStub(
+  public static ChatServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new BanqueServiceBlockingStub(channel);
+    return new ChatServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static BanqueServiceFutureStub newFutureStub(
+  public static ChatServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new BanqueServiceFutureStub(channel);
+    return new ChatServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class BanqueServiceImplBase implements io.grpc.BindableService {
+  public static abstract class ChatServiceImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
@@ -258,20 +258,20 @@ public final class ChatServiceGrpc {
 
   /**
    */
-  public static final class BanqueServiceStub extends io.grpc.stub.AbstractStub<BanqueServiceStub> {
-    private BanqueServiceStub(io.grpc.Channel channel) {
+  public static final class ChatServiceStub extends io.grpc.stub.AbstractStub<ChatServiceStub> {
+    private ChatServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private BanqueServiceStub(io.grpc.Channel channel,
+    private ChatServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BanqueServiceStub build(io.grpc.Channel channel,
+    protected ChatServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new BanqueServiceStub(channel, callOptions);
+      return new ChatServiceStub(channel, callOptions);
     }
 
     /**
@@ -321,20 +321,20 @@ public final class ChatServiceGrpc {
 
   /**
    */
-  public static final class BanqueServiceBlockingStub extends io.grpc.stub.AbstractStub<BanqueServiceBlockingStub> {
-    private BanqueServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class ChatServiceBlockingStub extends io.grpc.stub.AbstractStub<ChatServiceBlockingStub> {
+    private ChatServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private BanqueServiceBlockingStub(io.grpc.Channel channel,
+    private ChatServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BanqueServiceBlockingStub build(io.grpc.Channel channel,
+    protected ChatServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new BanqueServiceBlockingStub(channel, callOptions);
+      return new ChatServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -361,20 +361,20 @@ public final class ChatServiceGrpc {
 
   /**
    */
-  public static final class BanqueServiceFutureStub extends io.grpc.stub.AbstractStub<BanqueServiceFutureStub> {
-    private BanqueServiceFutureStub(io.grpc.Channel channel) {
+  public static final class ChatServiceFutureStub extends io.grpc.stub.AbstractStub<ChatServiceFutureStub> {
+    private ChatServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private BanqueServiceFutureStub(io.grpc.Channel channel,
+    private ChatServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected BanqueServiceFutureStub build(io.grpc.Channel channel,
+    protected ChatServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new BanqueServiceFutureStub(channel, callOptions);
+      return new ChatServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -399,10 +399,10 @@ public final class ChatServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final BanqueServiceImplBase serviceImpl;
+    private final ChatServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(BanqueServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(ChatServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -441,9 +441,9 @@ public final class ChatServiceGrpc {
     }
   }
 
-  private static abstract class BanqueServiceBaseDescriptorSupplier
+  private static abstract class ChatServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    BanqueServiceBaseDescriptorSupplier() {}
+    ChatServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -452,21 +452,21 @@ public final class ChatServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("BanqueService");
+      return getFileDescriptor().findServiceByName("ChatService");
     }
   }
 
-  private static final class BanqueServiceFileDescriptorSupplier
-      extends BanqueServiceBaseDescriptorSupplier {
-    BanqueServiceFileDescriptorSupplier() {}
+  private static final class ChatServiceFileDescriptorSupplier
+      extends ChatServiceBaseDescriptorSupplier {
+    ChatServiceFileDescriptorSupplier() {}
   }
 
-  private static final class BanqueServiceMethodDescriptorSupplier
-      extends BanqueServiceBaseDescriptorSupplier
+  private static final class ChatServiceMethodDescriptorSupplier
+      extends ChatServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    BanqueServiceMethodDescriptorSupplier(String methodName) {
+    ChatServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -485,7 +485,7 @@ public final class ChatServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new BanqueServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new ChatServiceFileDescriptorSupplier())
               .addMethod(getConvertMethod())
               .addMethod(getGetCurrencyStreamMethod())
               .addMethod(getPerformStreamMethod())
